@@ -25,17 +25,17 @@ data = dict(
     train=dict(
         type=dataset_type,
         data_prefix='/home/wbl/workspace/data/result_2021_06_04',
-        ann_file='/home/wbl/workspace/data/raster_data.txt',
+        ann_file='/home/wbl/workspace/data/raster_data-train.txt',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
         data_prefix='/home/wbl/workspace/data/result_2021_06_04',
-        ann_file='/home/wbl/workspace/data/raster_data.txt',
+        ann_file='/home/wbl/workspace/data/raster_data-val.txt',
         pipeline=test_pipeline),
     test=dict(
         # replace `data/val` with `data/test` for standard test
         type=dataset_type,
         data_prefix='/home/wbl/workspace/data/result_2021_06_04',
-        ann_file='/home/wbl/workspace/data/raster_data.txt',
+        ann_file='/home/wbl/workspace/data/raster_data-val.txt',
         pipeline=test_pipeline))
-evaluation = dict(interval=1, metric='accuracy')
+evaluation = dict(interval=1, metric=["accuracy", "precision", "recall", "f1_score", "support"])
